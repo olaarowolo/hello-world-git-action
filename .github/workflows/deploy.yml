@@ -20,5 +20,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          server-dir: /public_html/
+          server-dir: /home1/httprapu/staging.olaarowolo.com/staging-ftp
           local-dir: ./
