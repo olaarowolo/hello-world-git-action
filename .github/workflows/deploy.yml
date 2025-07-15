@@ -3,7 +3,7 @@ name: 🚀 SFTP Deployment via SSH
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   deploy:
