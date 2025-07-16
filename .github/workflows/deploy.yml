@@ -1,9 +1,9 @@
-name: 🚀 SFTP Deployment via SSH
+name: 🚀 FTP Deployment
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy:
@@ -13,11 +13,12 @@ jobs:
       - name: 📥 Checkout Repository
         uses: actions/checkout@v4
 
-      - name: 📤 Upload to Server via SFTP
-        uses: easingthemes/ssh-deploy@v5.0.0
+      - name: 📤 Upload to FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-          remote-user: ${{ secrets.SSH_USERNAME }}
-          server-ip: ${{ secrets.SERVER_IP }}
-          remote-path: /home1/httprapu/staging.olaarowolo.com/staging-ftp/
-          local-path: ./
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          server-dir: /staging.olaarowolo.com
+          local-dir: ./
